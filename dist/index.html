@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>QLShop — Tính phí sàn</title>
+  <meta name="description" content="Công cụ tính phí và lợi nhuận đơn hàng trên Shopee, Lazada và TikTok Shop." />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='15' fill='%2310192f'/%3E%3Cpath d='M17 21h30l-3 28H20z' fill='%2355b878'/%3E%3Cpath d='M24 24c0-7 3-11 8-11s8 4 8 11' fill='none' stroke='white' stroke-width='4'/%3E%3C/svg%3E" />
+  <style>
+    :root { --navy:#0c1429; --ink:#242b38; --muted:#7b8496; --line:#e5e8ee; --soft:#f6f7f9; --brand:#ea6048; --green:#36a767; --green-soft:#eefbf3; --blue:#3867df; --shadow:0 12px 35px rgba(20,31,54,.07); }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; color:var(--ink); background:#f4f6f8; font-size:14px; }
+    button,input,select { font:inherit; }
+    button { cursor:pointer; }
+    .app { min-height:100vh; display:grid; grid-template-columns:230px minmax(0,1fr); }
+    aside { position:sticky; top:0; height:100vh; background:var(--navy); color:#aeb7ca; padding:14px 12px; display:flex; flex-direction:column; overflow:auto; }
+    .brand { display:flex; align-items:center; gap:10px; padding:0 2px 14px; border-bottom:1px solid rgba(255,255,255,.07); color:#fff; }
+    .logo { width:30px; height:30px; border-radius:8px; display:grid; place-items:center; background:linear-gradient(145deg,#6ac988,#34955c); font-weight:850; font-size:17px; box-shadow:inset 0 0 0 1px rgba(255,255,255,.18); }
+    .brand strong { display:block; font-size:16px; line-height:1; }.brand small{display:block;margin-top:4px;color:#8e98ad}
+    nav { padding-top:13px; }.nav-item { display:flex; align-items:center; gap:12px; padding:10px 10px; min-height:40px; border-radius:8px; color:#aeb7ca; text-decoration:none; margin:1px 0; }.nav-item:hover{background:rgba(255,255,255,.05);color:#fff}.nav-item.active{color:#fff;background:rgba(85,184,120,.13);box-shadow:inset 3px 0 #56b97a}.nav-icon{width:18px;text-align:center;opacity:.9}
+    .aside-bottom { margin-top:auto; }.ai-card,.plan-card { border:1px solid rgba(255,255,255,.1); border-radius:10px; margin-top:10px; padding:12px; background:rgba(255,255,255,.035); }.ai-card{display:flex;gap:10px;align-items:center;border-color:rgba(85,184,120,.32);background:rgba(85,184,120,.08);color:#fff}.ai-spark{margin-left:auto;color:#71d296}.plan-title{color:#fff}.plan-card small{display:block;margin:5px 0 10px;color:#778198}.progress{height:4px;border-radius:10px;background:#26324d;overflow:hidden}.progress i{display:block;width:80%;height:100%;background:#416ce4}.upgrade{width:100%;border:0;border-radius:5px;margin-top:9px;padding:7px;background:#3d69df;color:#fff;font-weight:700}
+    main { min-width:0; }.topbar { height:66px; background:#fff; border-bottom:1px solid var(--line); display:flex; align-items:center; justify-content:space-between; padding:0 26px; }.crumb{font-weight:700}.crumb span{color:#a1a7b2;font-weight:500;margin-left:11px}.back{color:#687184;font-weight:600}.menu-btn{display:none;border:0;background:#f1f3f6;border-radius:8px;padding:8px 10px}
+    .content { padding:14px 26px 28px; max-width:1320px; margin:0 auto; }.shell { background:#fff; border:1px solid #dfe3e8; border-radius:8px; padding:16px; box-shadow:var(--shadow); }.calculator { border:1px solid var(--line); border-radius:8px; overflow:hidden; }
+    .calc-head { display:flex; align-items:center; justify-content:space-between; gap:22px; padding:12px 16px; border-bottom:1px solid var(--line); }.title-block{display:flex;gap:12px;align-items:center}.calc-icon{width:32px;height:32px;border-radius:8px;background:#f0f2f6;display:grid;place-items:center;font-size:17px}.title-block h1{font-size:15px;margin:0 0 4px;letter-spacing:.02em}.title-block p{margin:0;color:var(--muted);font-size:13px}
+    .market-tabs{display:flex;gap:8px;flex-wrap:wrap}.market{min-width:112px;border:1px solid #dcdfe5;background:#fff;border-radius:7px;padding:9px 13px;display:flex;align-items:center;justify-content:center;gap:8px;color:#323844}.market.active{background:var(--brand);border-color:var(--brand);color:#fff}.market-logo{width:21px;height:21px;border-radius:6px;display:grid;place-items:center;font-weight:800;background:#fff;color:#f05b41}.market[data-market="lazada"] .market-logo{color:#6941c7}.market[data-market="tiktok"] .market-logo{background:#171717;color:#fff}
+    .form-area{padding:14px 16px 16px;border-bottom:1px solid var(--line)}.select-grid{display:grid;grid-template-columns:1fr 2fr 1fr;gap:14px}.field label{display:block;font-size:13px;color:#535d6e;margin:0 0 7px}.field select,.field input{width:100%;height:40px;border:1px solid #d7dbe2;border-radius:6px;background:#fff;padding:0 12px;color:#313846;outline:none}.field input:focus,.field select:focus{border-color:#7390e5;box-shadow:0 0 0 3px rgba(56,103,223,.1)}.money-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:16px}.money-wrap{position:relative}.money-wrap input{text-align:right;padding-right:30px}.suffix{position:absolute;right:11px;top:11px;color:#8c95a4}.custom-category{display:none;margin-top:10px}.custom-category.show{display:block}
+    .fee-head,.fee-row{display:grid;grid-template-columns:44% 31% 25%;align-items:center}.fee-head{background:#f7f8fa;color:#70798a;font-size:12px;font-weight:700;padding:11px 16px}.fee-head span:last-child,.fee-amount{text-align:right}.fee-row{min-height:46px;padding:8px 16px;border-bottom:1px solid var(--line)}.fee-name{font-weight:650}.info{display:inline-grid;place-items:center;width:15px;height:15px;border:1px solid #aab2c0;border-radius:50%;font-size:10px;color:#8992a1;margin-left:6px;background:#fff}.rate-cell{display:flex;align-items:center;gap:10px;color:#535d6d}.rate-input{width:82px!important;height:33px!important;border:1px solid #d9dde4;border-radius:6px;text-align:right;padding:0 9px!important;background:#fff}.flat-input{width:105px!important}.fee-amount{font-weight:700;color:#424a59}.toggle{border:0;padding:7px 9px;border-radius:6px;background:#f1f3f6;color:#717987;display:inline-flex;align-items:center;gap:7px}.toggle::before{content:"";width:16px;height:16px;border:1px solid #cbd1da;border-radius:4px;background:#e9ecf1}.toggle.on{background:#fff3eb;color:#7a6557}.toggle.on::before{content:"✓";background:#f28c4d;border-color:#f28c4d;color:#fff;display:grid;place-items:center;font-size:12px}.manual-note{font-size:12px;color:#9299a7}
+    .extras{display:flex;justify-content:space-between;padding:9px 16px;border-bottom:1px solid var(--line);gap:16px}.extras button{border:0;background:transparent;padding:4px 0;color:#434c5c}.extras button:hover{color:var(--blue)}.extra-fields{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:12px 16px;background:#fafbfc;border-bottom:1px solid var(--line)}.extra-fields[hidden]{display:none}.summary{display:grid;grid-template-columns:1fr 1fr 1.1fr;background:#fbfcfd}.summary-card{padding:20px 24px;min-height:110px}.summary-card .label{font-size:13px;color:#6f7888}.summary-card strong{display:block;font-size:22px;margin:7px 0}.summary-card small{color:#858d9b}.profit{background:var(--green-soft)}.profit strong{color:#2c9b5b}.profit.negative{background:#fff2f0}.profit.negative strong{color:#d24737}.calc-foot{display:flex;justify-content:space-between;padding:12px 16px;color:#586172}.calc-foot button{border:0;background:transparent;color:#586172;padding:0}.policy-note{margin-top:12px;padding:13px 15px;border:1px solid #dce4f4;border-radius:8px;background:#f7f9fd;color:#61708a;line-height:1.55}.policy-note strong{color:#354157}
+    .modal{position:fixed;inset:0;background:rgba(10,17,34,.42);display:grid;place-items:center;padding:20px;z-index:20}.modal[hidden]{display:none}.dialog{max-width:560px;width:100%;background:#fff;border-radius:12px;padding:22px;box-shadow:0 20px 70px rgba(0,0,0,.2)}.dialog h2{font-size:18px;margin:0 0 12px}.dialog p,.dialog li{line-height:1.55;color:#5e6879}.dialog .close{float:right;border:0;background:#f0f2f5;border-radius:7px;padding:7px 11px}
+    @media(max-width:980px){.app{grid-template-columns:78px minmax(0,1fr)}.brand-copy,.nav-label,.aside-bottom{display:none}.brand{justify-content:center}.nav-item{justify-content:center}.select-grid{grid-template-columns:1fr 1.5fr}.select-grid .field:last-child{grid-column:1/-1}.money-grid{grid-template-columns:repeat(3,1fr)}}
+    @media(max-width:720px){.app{display:block}.sidebar{position:fixed;z-index:30;left:-250px;width:230px;transition:.2s}.sidebar.open{left:0}.brand-copy,.nav-label,.aside-bottom{display:block}.nav-item{justify-content:flex-start}.topbar{height:58px;padding:0 14px}.menu-btn{display:inline-block}.crumb{font-size:13px}.back{display:none}.content{padding:10px}.shell{padding:8px}.calc-head{align-items:flex-start;flex-direction:column}.market-tabs{width:100%}.market{flex:1;min-width:auto;padding:8px 7px}.select-grid,.money-grid{grid-template-columns:1fr}.select-grid .field:last-child{grid-column:auto}.fee-head{display:none}.fee-row{grid-template-columns:1fr auto;gap:8px}.rate-cell{grid-column:1/2;grid-row:2}.fee-amount{grid-column:2;grid-row:1/3}.extras{flex-direction:column}.extra-fields{grid-template-columns:1fr}.summary{grid-template-columns:1fr}.summary-card{min-height:auto;border-bottom:1px solid var(--line)}.calc-foot{flex-direction:column;gap:12px}.title-block p{line-height:1.4}}
+  </style>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand"><div class="logo">Q</div><div class="brand-copy"><strong>QLShop</strong><small>Quản lý đa sàn</small></div></div>
+      <nav id="nav"></nav>
+      <div class="aside-bottom">
+        <div class="ai-card"><div class="logo" style="width:25px;height:25px;font-size:14px">AI</div><div><b>QLShop AI</b><small style="display:block;color:#a8dbb9">Trợ lý vận hành</small></div><span class="ai-spark">✦</span></div>
+        <div class="plan-card"><div class="plan-title">👑 Gói Enterprise</div><small>Hiệu lực đến 12/12/2026</small><div class="progress"><i></i></div><button class="upgrade">Nâng cấp gói</button></div>
+      </div>
+    </aside>
+    <main>
+      <header class="topbar"><div style="display:flex;gap:10px;align-items:center"><button class="menu-btn" id="menuBtn" aria-label="Mở menu">☰</button><div class="crumb">Quản lý đa sàn <span>/ &nbsp; Tính phí sàn</span></div></div><div class="back">← &nbsp; Về QLShop</div></header>
+      <div class="content"><section class="shell"><div class="calculator">
+        <div class="calc-head"><div class="title-block"><div class="calc-icon">▣</div><div><h1>TÍNH PHÍ SÀN</h1><p>Chọn sàn và nhập dữ liệu để ước tính phí, thuế và lợi nhuận</p></div></div><div class="market-tabs" id="markets">
+          <button class="market active" data-market="shopee"><span class="market-logo">S</span>Shopee</button>
+          <button class="market" data-market="lazada"><span class="market-logo">L</span>Lazada</button>
+          <button class="market" data-market="tiktok"><span class="market-logo">♪</span>TikTok Shop</button>
+        </div></div>
+        <div class="form-area">
+          <div class="select-grid">
+            <div class="field"><label for="shopType">Loại shop</label><select id="shopType"><option>Shop thường</option><option>Shop Mall</option><option>Tự nhập</option></select></div>
+            <div class="field"><label for="category">Ngành hàng</label><select id="category"><option>Sắc đẹp / Mức chung</option><option>Thời trang / Mức chung</option><option>Nhà cửa & đời sống / Mức chung</option><option value="custom">Tự nhập ngành hàng</option></select><input id="customCategory" class="custom-category" placeholder="Nhập ngành hàng của bạn" /></div>
+            <div class="field"><label for="taxProfile">Hồ sơ thuế</label><select id="taxProfile"><option value="goods">Bán hàng hóa</option><option value="service">Cung cấp dịch vụ</option><option value="custom">Tự nhập tỷ lệ thuế</option></select></div>
+          </div>
+          <div class="money-grid">
+            <div class="field"><label for="salePrice">Giá bán</label><div class="money-wrap"><input id="salePrice" inputmode="numeric" value="0"><span class="suffix">đ</span></div></div>
+            <div class="field"><label for="discount">Giảm giá shop</label><div class="money-wrap"><input id="discount" inputmode="numeric" value="0"><span class="suffix">đ</span></div></div>
+            <div class="field"><label for="cost">Giá vốn</label><div class="money-wrap"><input id="cost" inputmode="numeric" value="0"><span class="suffix">đ</span></div></div>
+            <div class="field"><label for="buyerShipping">Ship khách trả</label><div class="money-wrap"><input id="buyerShipping" inputmode="numeric" value="0"><span class="suffix">đ</span></div></div>
+            <div class="field"><label for="sellerShipping">Ship shop chịu</label><div class="money-wrap"><input id="sellerShipping" inputmode="numeric" value="0"><span class="suffix">đ</span></div></div>
+          </div>
+        </div>
+        <div class="fee-head"><span>KHOẢN PHÍ</span><span>MỨC PHÍ</span><span>SỐ TIỀN</span></div>
+        <div id="feeRows"></div>
+        <div class="extras"><button id="otherBtn">+ Phí khác / hoàn hàng</button><button id="opsBtn">+ Chi phí vận hành</button></div>
+        <div class="extra-fields" id="extraFields" hidden>
+          <div class="field"><label for="otherFee">Phí khác / hoàn hàng</label><div class="money-wrap"><input id="otherFee" inputmode="numeric" value="0"><span class="suffix">đ</span></div></div>
+          <div class="field"><label for="opsCost">Chi phí vận hành</label><div class="money-wrap"><input id="opsCost" inputmode="numeric" value="0"><span class="suffix">đ</span></div></div>
+        </div>
+        <div class="summary"><div class="summary-card"><div class="label">Tổng phí & thuế</div><strong id="totalFee">0đ</strong><small>Gồm cước shop chịu và phí hoàn</small></div><div class="summary-card"><div class="label">Giá vốn & vận hành</div><strong id="totalCost">0đ</strong><small id="netRevenue">Doanh thu sau giảm: 0đ</small></div><div class="summary-card profit" id="profitCard"><div class="label">LÃI DỰ KIẾN</div><strong id="profit">0đ</strong><small id="margin">Chọn ngành hàng và nhập giá bán để tính</small></div></div>
+        <div class="calc-foot"><button id="explainBtn">ⓘ Cách tính & nguồn biểu phí</button><button id="compareBtn">So sánh 3 sàn ↗</button></div>
+      </div><div class="policy-note"><strong>Lưu ý:</strong> Các mức phí hiển thị chỉ là dữ liệu tham khảo theo trang mẫu. Khi chưa có dữ liệu chính xác, ô tỷ lệ được để trống hoặc có thể chỉnh trực tiếp để bạn tự điền.</div></section></div>
+    </main>
+  </div>
+  <div class="modal" id="modal" hidden><div class="dialog"><button class="close" id="closeModal">Đóng</button><h2 id="modalTitle">Cách tính</h2><div id="modalBody"></div></div></div>
+  <script>
+    const navItems=['Tổng quan','Đơn hàng','Hóa đơn điện tử','Trả hàng & Hoàn tiền','Quản lý Affiliate','Đóng hàng','Tài chính sàn','Khách hàng','Kế toán','Nhân viên','Kho hàng','Sản phẩm sàn','Khuyến mãi','Quản lý live','Shopee Ads','Tính phí sàn','Trung tâm rủi ro','Kết nối'];
+    const navIcons=['⌂','▤','▧','◆','♧','◇','▣','♙','▦','♟','□','▱','⚡','◉','↗','▥','⚠','⛓'];
+    document.querySelector('#nav').innerHTML=navItems.map((x,i)=>`<a class="nav-item ${x==='Tính phí sàn'?'active':''}" href="#"><span class="nav-icon">${navIcons[i]}</span><span class="nav-label">${x}</span></a>`).join('');
+    const presets={
+      shopee:{fixed:17,transaction:6,infrastructure:3000,tax:1.5,affiliate:10,voucher:5.5,piship:2.7},
+      lazada:{fixed:'',transaction:'',infrastructure:'',tax:1.5,affiliate:'',voucher:'',piship:''},
+      tiktok:{fixed:'',transaction:'',infrastructure:'',tax:1.5,affiliate:'',voucher:'',piship:''}
+    };
+    const fees=[
+      {id:'fixed',name:'Phí cố định',kind:'percent',enabled:true},
+      {id:'transaction',name:'Phí xử lý giao dịch',kind:'percent',enabled:true},
+      {id:'infrastructure',name:'Phí hạ tầng',kind:'flat',enabled:true},
+      {id:'tax',name:'Thuế GTGT + TNCN',kind:'percent',enabled:true,toggle:true},
+      {id:'affiliate',name:'Affiliate',kind:'percent',enabled:false,toggle:true},
+      {id:'voucher',name:'Voucher Xtra',kind:'percent',enabled:false,toggle:true},
+      {id:'piship',name:'PiShip',kind:'percent',enabled:false,toggle:true}
+    ];
+    let market='shopee'; let state=JSON.parse(JSON.stringify(presets[market]));
+    const currency=n=>Math.round(Number(n)||0).toLocaleString('vi-VN')+'đ';
+    const number=v=>Number(String(v||0).replace(/\D/g,''))||0;
+    const moneyIds=['salePrice','discount','cost','buyerShipping','sellerShipping','otherFee','opsCost'];
+    function renderRows(){
+      document.querySelector('#feeRows').innerHTML=fees.map(f=>`<div class="fee-row" data-id="${f.id}"><div class="fee-name">${f.name}<button class="info" aria-label="Cách tính ${f.name}" data-info="${f.id}">i</button></div><div class="rate-cell">${f.toggle?`<button class="toggle ${f.enabled?'on':''}" data-toggle="${f.id}">${f.enabled?'Bật':'Tắt'}</button>`:''}<input class="rate-input ${f.kind==='flat'?'flat-input':''}" data-rate="${f.id}" inputmode="decimal" value="${state[f.id]}" placeholder="Tự nhập"><span>${f.kind==='flat'?'đ/đơn':'%'}</span>${state[f.id]===''?'<small class="manual-note">chưa có dữ liệu</small>':''}</div><div class="fee-amount" id="amount-${f.id}">0đ</div></div>`).join('');
+      bindRows(); calculate();
+    }
+    function bindRows(){
+      document.querySelectorAll('[data-rate]').forEach(el=>el.addEventListener('input',e=>{state[e.target.dataset.rate]=e.target.value;calculate()}));
+      document.querySelectorAll('[data-toggle]').forEach(el=>el.addEventListener('click',e=>{const f=fees.find(x=>x.id===e.currentTarget.dataset.toggle);f.enabled=!f.enabled;renderRows()}));
+      document.querySelectorAll('[data-info]').forEach(el=>el.addEventListener('click',e=>showInfo(e.currentTarget.dataset.info)));
+    }
+    function calculate(){
+      const sale=number(salePrice.value), discount=number(document.querySelector('#discount').value), revenue=Math.max(0,sale-discount), sellerShip=number(document.querySelector('#sellerShipping').value), costValue=number(document.querySelector('#cost').value), other=number(document.querySelector('#otherFee').value), ops=number(document.querySelector('#opsCost').value);
+      let platformFees=0;
+      fees.forEach(f=>{const rate=parseFloat(state[f.id])||0;const enabled=!f.toggle||f.enabled;const amount=enabled?(f.kind==='flat'?(revenue>0?rate:0):revenue*rate/100):0;platformFees+=amount;const target=document.querySelector('#amount-'+f.id);if(target)target.textContent=currency(amount)});
+      const totalFee=platformFees+sellerShip+other, totalCost=costValue+ops, profit=revenue-totalFee-totalCost;
+      document.querySelector('#totalFee').textContent=currency(totalFee);document.querySelector('#totalCost').textContent=currency(totalCost);document.querySelector('#netRevenue').textContent='Doanh thu sau giảm: '+currency(revenue);document.querySelector('#profit').textContent=currency(profit);document.querySelector('#margin').textContent=revenue?`Biên lãi ${(profit/revenue*100).toFixed(1)}%`:'Chọn ngành hàng và nhập giá bán để tính';document.querySelector('#profitCard').classList.toggle('negative',profit<0);
+    }
+    moneyIds.forEach(id=>{const el=document.querySelector('#'+id);el.addEventListener('focus',()=>el.select());el.addEventListener('input',calculate);el.addEventListener('blur',()=>{el.value=number(el.value).toLocaleString('vi-VN');calculate()})});
+    document.querySelectorAll('.market').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('.market').forEach(x=>x.classList.remove('active'));btn.classList.add('active');market=btn.dataset.market;state=JSON.parse(JSON.stringify(presets[market]));fees.forEach(f=>f.enabled=['fixed','transaction','infrastructure','tax'].includes(f.id));renderRows()}));
+    document.querySelector('#category').addEventListener('change',e=>document.querySelector('#customCategory').classList.toggle('show',e.target.value==='custom'));
+    const toggleExtras=()=>{document.querySelector('#extraFields').hidden=!document.querySelector('#extraFields').hidden};document.querySelector('#otherBtn').onclick=toggleExtras;document.querySelector('#opsBtn').onclick=toggleExtras;
+    function openModal(title,html){document.querySelector('#modalTitle').textContent=title;document.querySelector('#modalBody').innerHTML=html;document.querySelector('#modal').hidden=false}
+    function showInfo(id){const f=fees.find(x=>x.id===id);openModal(f.name,`<p>${f.kind==='flat'?'Khoản phí cố định theo từng đơn hàng.':'Tỷ lệ được tính trên doanh thu sau giảm giá của shop.'}</p><p>Bạn có thể sửa trực tiếp mức phí trong bảng để khớp chính sách hiện tại của gian hàng.</p>`)}
+    document.querySelector('#explainBtn').onclick=()=>openModal('Cách tính & nguồn biểu phí','<ul><li>Doanh thu sau giảm = Giá bán − Giảm giá shop.</li><li>Phí theo tỷ lệ = Doanh thu sau giảm × tỷ lệ phí.</li><li>Lãi dự kiến = Doanh thu sau giảm − tổng phí, thuế − giá vốn, vận hành.</li></ul><p>Mức phí có thể thay đổi theo sàn, loại shop và ngành hàng; hãy nhập lại theo biểu phí hiện hành của bạn.</p>');
+    document.querySelector('#compareBtn').onclick=()=>openModal('So sánh 3 sàn','<p>Chọn lần lượt Shopee, Lazada hoặc TikTok Shop ở đầu trang. Với các sàn chưa có dữ liệu tham khảo, hãy nhập mức phí của gian hàng để so sánh chính xác.</p>');
+    document.querySelector('#closeModal').onclick=()=>document.querySelector('#modal').hidden=true;document.querySelector('#modal').addEventListener('click',e=>{if(e.target.id==='modal')e.currentTarget.hidden=true});
+    document.querySelector('#menuBtn').onclick=()=>document.querySelector('#sidebar').classList.toggle('open');
+    renderRows();
+  </script>
+</body>
+</html>
