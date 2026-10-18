@@ -9,11 +9,12 @@
     :root{--bg:#f4f6f8;--surface:#fff;--surface-2:#f8fafc;--ink:#202735;--muted:#718096;--line:#e2e7ed;--brand:#eb5d45;--brand-dark:#ce4934;--brand-soft:#fff2ee;--green:#228654;--green-soft:#edf9f2;--blue:#315fd5;--blue-soft:#eef3ff;--red:#c83f35;--shadow:0 12px 32px rgba(25,35,55,.07);--radius:12px}
     *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.45 Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,input{font:inherit}button{cursor:pointer}.app{min-height:100vh}.topbar{height:66px;display:flex;align-items:center;justify-content:space-between;padding:0 28px;background:var(--surface);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}.brand{display:flex;align-items:center;gap:11px}.brand-mark{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;background:var(--brand);color:#fff;font-weight:800}.brand strong{display:block;font-size:16px}.brand small{display:block;color:var(--muted);margin-top:1px}.save-state{display:flex;align-items:center;gap:7px;color:var(--green);font-size:13px}.save-state::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--green)}
     .page{max-width:1480px;margin:0 auto;padding:18px 26px 40px}.tabs{display:flex;gap:6px;padding:5px;background:#e9edf2;border-radius:11px;width:max-content;max-width:100%;overflow:auto;margin-bottom:16px}.tab{border:0;background:transparent;color:#647084;border-radius:8px;padding:10px 20px;font-weight:700;white-space:nowrap}.tab.active{background:#fff;color:var(--ink);box-shadow:0 3px 10px rgba(30,40,60,.09)}.tab-panel[hidden]{display:none}
+    .sync-card{margin-bottom:16px;overflow:hidden}.sync-card summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:13px 16px;cursor:pointer}.sync-card summary::-webkit-details-marker{display:none}.sync-title{display:flex;align-items:center;gap:10px}.sync-icon{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;background:var(--blue-soft);color:var(--blue);font-weight:800}.sync-title strong{display:block;font-size:13px}.sync-title small{display:block;color:var(--muted);font-size:11px;margin-top:1px}.sync-badge{padding:5px 9px;border-radius:999px;background:#eef1f5;color:#687487;font-size:11px;font-weight:800;white-space:nowrap}.sync-badge.ok{background:var(--green-soft);color:var(--green)}.sync-badge.error{background:#fff0ee;color:var(--red)}.sync-badge.busy{background:var(--blue-soft);color:var(--blue)}.sync-body{padding:15px 16px;border-top:1px solid var(--line);background:var(--surface-2)}.sync-grid{display:grid;grid-template-columns:minmax(260px,1.4fr) minmax(220px,1fr);gap:12px}.sync-field label{display:block;color:#556173;font-size:12px;font-weight:650;margin-bottom:6px}.sync-field input{width:100%;height:40px;border:1px solid #d7dde5;border-radius:8px;padding:0 11px;background:#fff;outline:0}.sync-field input:focus{border-color:#708ee2;box-shadow:0 0 0 3px rgba(49,95,213,.1)}.sync-field input[readonly]{color:#7a8494;background:#f5f7fa}.sync-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:12px}.sync-message{margin:10px 0 0;color:var(--muted);font-size:12px}.sync-message.error{color:var(--red)}.sync-message.ok{color:var(--green)}
     .hero{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;margin-bottom:14px}.hero h1{font-size:22px;margin:0 0 4px}.hero p{color:var(--muted);margin:0}.count-pill{padding:8px 12px;border:1px solid var(--line);border-radius:999px;background:#fff;color:#566173;white-space:nowrap}.layout{display:grid;grid-template-columns:minmax(420px,.85fr) minmax(0,1.65fr);gap:16px;align-items:start}.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}.form-card{position:sticky;top:84px}.card-head{padding:17px 18px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:12px}.card-head h2{font-size:15px;margin:0}.card-head p{font-size:12px;color:var(--muted);margin:3px 0 0}.card-body{padding:18px}.section-label{display:flex;align-items:center;gap:8px;margin:2px 0 12px;font-size:12px;font-weight:800;letter-spacing:.04em;color:#596579;text-transform:uppercase}.section-label::after{content:"";height:1px;flex:1;background:var(--line)}.section-label:not(:first-child){margin-top:20px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.field.full{grid-column:1/-1}.field label{display:block;color:#556173;font-size:12px;font-weight:650;margin:0 0 6px}.field input{width:100%;height:42px;border:1px solid #d7dde5;border-radius:8px;padding:0 11px;outline:0;background:#fff;color:var(--ink)}.field input:focus{border-color:#708ee2;box-shadow:0 0 0 3px rgba(49,95,213,.1)}.input-wrap{position:relative}.input-wrap input{text-align:right;padding-right:34px}.input-wrap .suffix{position:absolute;right:11px;top:11px;color:#8892a2}.platform-box{padding:13px;border-radius:10px;background:var(--surface-2);border:1px solid var(--line)}.platform-box.shopee{border-top:3px solid var(--brand)}.platform-box.tiktok{border-top:3px solid #1f2937}.platform-title{display:flex;align-items:center;gap:8px;font-weight:800;margin-bottom:12px}.platform-dot{width:22px;height:22px;border-radius:7px;display:grid;place-items:center;color:#fff;font-size:11px}.shopee .platform-dot{background:var(--brand)}.tiktok .platform-dot{background:#1f2937}.actions{display:flex;gap:8px;justify-content:flex-end;padding-top:20px}.btn{height:39px;border:1px solid #d6dce4;border-radius:8px;background:#fff;padding:0 13px;color:#465164;font-weight:700}.btn:hover{background:#f7f8fa}.btn.primary{border-color:var(--brand);background:var(--brand);color:#fff}.btn.primary:hover{background:var(--brand-dark)}.btn.danger{color:var(--red)}.btn.small{height:32px;padding:0 10px;font-size:12px}.btn[hidden]{display:none}
     .list-card{min-width:0}.list-toolbar{display:flex;gap:10px;padding:14px 18px;border-bottom:1px solid var(--line)}.search{position:relative;flex:1}.search input{width:100%;height:39px;border:1px solid #d7dde5;border-radius:8px;padding:0 12px 0 36px;outline:0}.search span{position:absolute;left:12px;top:9px;color:#8a94a3}.product-list{display:grid;gap:12px;padding:14px}.empty{padding:48px 20px;text-align:center;color:var(--muted)}.empty-icon{width:52px;height:52px;border-radius:15px;background:var(--brand-soft);color:var(--brand);display:grid;place-items:center;margin:0 auto 12px;font-size:22px}.empty h3{color:var(--ink);margin:0 0 5px;font-size:15px}.empty p{margin:0}.product-card{border:1px solid var(--line);border-radius:11px;overflow:hidden;background:#fff}.product-top{display:grid;grid-template-columns:minmax(180px,1.3fr) repeat(3,1fr) auto;gap:12px;align-items:center;padding:14px 15px}.product-name strong{display:block;font-size:15px}.product-name small{color:var(--muted)}.stat span,.fee-line span{display:block;color:var(--muted);font-size:11px}.stat b{display:block;margin-top:3px;font-size:14px}.row-actions{display:flex;gap:6px}.product-fees{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border-top:1px solid var(--line)}.fee-panel{background:var(--surface-2);padding:13px 15px}.fee-panel h4{margin:0 0 9px;font-size:12px}.fee-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.fee-line b{font-size:12px;display:block;margin-top:2px}.shared-fees{display:flex;gap:16px;flex-wrap:wrap;padding:10px 15px;background:#fff;border-top:1px solid var(--line);color:#566173;font-size:12px}.shared-fees b{color:var(--ink)}
     .platform-page-head{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;margin-bottom:14px}.platform-page-head h1{font-size:22px;margin:0 0 4px}.platform-page-head p{color:var(--muted);margin:0}.analysis-wrap{overflow:auto}.analysis-table{width:100%;border-collapse:collapse;min-width:980px}.analysis-table th{padding:12px 14px;background:var(--surface-2);border-bottom:1px solid var(--line);color:#657185;font-size:11px;text-align:right;text-transform:uppercase;letter-spacing:.035em;white-space:nowrap}.analysis-table th:first-child,.analysis-table td:first-child{text-align:left;position:sticky;left:0}.analysis-table th:first-child{z-index:2;background:var(--surface-2)}.analysis-table td:first-child{z-index:1;background:#fff}.analysis-table td{padding:14px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}.analysis-table tbody tr:last-child td{border-bottom:0}.analysis-table tbody tr:hover td{background:#fffaf8}.analysis-table tbody tr:hover td:first-child{background:#fffaf8}.analysis-table .product-cell{min-width:260px}.product-heading{display:flex;align-items:center;justify-content:space-between;gap:12px}.quantity-control{display:flex;align-items:center;gap:6px;color:var(--muted);font-size:11px;font-weight:700;white-space:nowrap}.quantity-control input{width:62px;height:32px;border:1px solid #d7dde5;border-radius:7px;padding:0 6px;text-align:center;color:var(--ink);outline:0}.quantity-control input:focus{border-color:#708ee2;box-shadow:0 0 0 3px rgba(49,95,213,.1)}.analysis-table .product-cell small{display:block;color:var(--muted);font-size:11px;margin-top:3px}.profit-positive{color:var(--green)}.profit-negative{color:var(--red)}.formula-note{margin-top:12px;padding:12px 14px;border:1px solid #dce5f7;background:#f7f9fe;border-radius:9px;color:#5f6e88;font-size:12px}.formula-note b{color:var(--ink)}.notice{margin-top:14px;padding:12px 14px;border:1px solid #dce5f7;background:#f7f9fe;border-radius:9px;color:#5f6e88;font-size:12px}
     @media(max-width:1100px){.layout{grid-template-columns:1fr}.form-card{position:static}.product-top{grid-template-columns:minmax(180px,1.2fr) repeat(3,1fr)}.row-actions{grid-column:1/-1;justify-content:flex-end}}
-    @media(max-width:720px){.topbar{height:60px;padding:0 14px}.brand small{display:none}.page{padding:12px}.tabs{width:100%}.tab{flex:1;padding:9px 14px}.hero,.platform-page-head{align-items:flex-start;flex-direction:column}.grid{grid-template-columns:1fr}.field.full{grid-column:auto}.card-body{padding:14px}.product-top{grid-template-columns:1fr 1fr}.product-name{grid-column:1/-1}.row-actions{grid-column:1/-1}.product-fees{grid-template-columns:1fr}.fee-grid{grid-template-columns:1fr 1fr}.list-toolbar{padding:12px}.product-list{padding:10px}.actions{position:sticky;bottom:0;background:#fff;padding:12px 0 0}.save-state{font-size:0}.save-state::after{content:"Đã lưu";font-size:12px}.analysis-table th,.analysis-table td{padding:11px 12px}}
+    @media(max-width:720px){.topbar{height:60px;padding:0 14px}.brand small{display:none}.page{padding:12px}.tabs{width:100%}.tab{flex:1;padding:9px 14px}.sync-grid{grid-template-columns:1fr}.sync-card summary{padding:12px}.sync-body{padding:12px}.sync-actions .btn{flex:1}.hero,.platform-page-head{align-items:flex-start;flex-direction:column}.grid{grid-template-columns:1fr}.field.full{grid-column:auto}.card-body{padding:14px}.product-top{grid-template-columns:1fr 1fr}.product-name{grid-column:1/-1}.row-actions{grid-column:1/-1}.product-fees{grid-template-columns:1fr}.fee-grid{grid-template-columns:1fr 1fr}.list-toolbar{padding:12px}.product-list{padding:10px}.actions{position:sticky;bottom:0;background:#fff;padding:12px 0 0}.save-state{font-size:0}.save-state::after{content:"Đã lưu";font-size:12px}.analysis-table th,.analysis-table td{padding:11px 12px}}
   </style>
 </head>
 <body>
@@ -28,6 +29,18 @@
         <button class="tab" data-tab="shopee">Shopee</button>
         <button class="tab" data-tab="tiktok">TikTok</button>
       </nav>
+
+      <details class="card sync-card" id="syncCard">
+        <summary><span class="sync-title"><span class="sync-icon">G</span><span><strong>Đồng bộ Google Sheet</strong><small id="syncSummary">Chưa kết nối · dữ liệu đang lưu trên thiết bị</small></span></span><span class="sync-badge" id="syncBadge">Cục bộ</span></summary>
+        <div class="sync-body">
+          <div class="sync-grid">
+            <div class="sync-field"><label for="syncEndpoint">Google Apps Script Web App</label><input id="syncEndpoint" readonly value="https://script.google.com/macros/s/AKfycbyDW2GcEmght_zZECsyG2PkkmbpdizKWZWJPk3qJMXb4Q7Ly6ZqgZYoqUls9040kOke/exec"></div>
+            <div class="sync-field"><label for="syncCode">Mã đồng bộ</label><input id="syncCode" type="password" autocomplete="current-password" placeholder="Nhập SYNC_CODE của bạn"></div>
+          </div>
+          <div class="sync-actions"><button type="button" class="btn primary" id="connectSyncBtn">Kiểm tra kết nối</button><button type="button" class="btn" id="pullSyncBtn" disabled>Tải từ Sheet</button><button type="button" class="btn" id="pushSyncBtn" disabled>Đẩy lên Sheet</button><button type="button" class="btn" id="toggleSyncCodeBtn">Hiện mã</button><button type="button" class="btn danger" id="disconnectSyncBtn" hidden>Ngắt kết nối</button></div>
+          <p class="sync-message" id="syncMessage">Mã đồng bộ chỉ được lưu trong trình duyệt này. Lần đầu kết nối, hãy chọn tải xuống hoặc đẩy lên để tránh ghi đè nhầm dữ liệu.</p>
+        </div>
+      </details>
 
       <section class="tab-panel" id="panel-products">
         <div class="hero"><div><h1>Sản phẩm</h1><p>Lưu thông tin sản phẩm và cấu hình phí riêng cho từng nền tảng.</p></div><div class="count-pill"><b id="productCount">0</b> sản phẩm đã lưu</div></div>
@@ -100,7 +113,9 @@
   <script>
     'use strict';
     const STORAGE_KEY='qlshop-shopee-fee-lab-v2';
-    const CATALOG_VERSION=4;
+    const SYNC_SETTINGS_KEY='qlshop-google-sync-v1';
+    const SYNC_ENDPOINT='https://script.google.com/macros/s/AKfycbyDW2GcEmght_zZECsyG2PkkmbpdizKWZWJPk3qJMXb4Q7Ly6ZqgZYoqUls9040kOke/exec';
+    const CATALOG_VERSION=5;
     const DEFAULT_PRODUCT={name:'',purchaseCost:0,collectionPrice:0,laborCost:0,operatingCost:5000,shopeeQuantity:1,tiktokQuantity:1,shopeeSalePrice:0,tiktokSalePrice:0,shopeeFixedRate:0,tiktokCommissionRate:0,shopeeTransactionRate:6,tiktokTransactionRate:6,serviceFee:3000,taxRate:1.6,pishipShopee:2700,pishipTiktok:1620,voucherXtraShopeeRate:5.5,voucherXtraShopeeCap:50000,voucherXtraTiktokRate:5.5,voucherXtraTiktokCap:50000};
     const MONEY_FIELDS=['purchaseCost','collectionPrice','laborCost','operatingCost','shopeeSalePrice','tiktokSalePrice','serviceFee','pishipShopee','pishipTiktok','voucherXtraShopeeCap','voucherXtraTiktokCap'];
     const DECIMAL_FIELDS=['shopeeFixedRate','tiktokCommissionRate','shopeeTransactionRate','tiktokTransactionRate','taxRate','voucherXtraShopeeRate','voucherXtraTiktokRate'];
@@ -113,6 +128,8 @@
     function escapeHtml(value){return String(value??'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]))}
     function readRoot(){try{return JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}')}catch{return{}}}
     function writeRoot(patch){try{const root={...readRoot(),...patch};localStorage.setItem(STORAGE_KEY,JSON.stringify(root));$('#saveState').textContent='Đã lưu lúc '+new Date().toLocaleTimeString('vi-VN',{hour:'2-digit',minute:'2-digit'})}catch{$('#saveState').textContent='Trình duyệt đang chặn lưu dữ liệu'}}
+    function readSyncSettings(){try{return{syncCode:'',ready:false,dirty:false,lastSyncedAt:'',...JSON.parse(localStorage.getItem(SYNC_SETTINGS_KEY)||'{}')}}catch{return{syncCode:'',ready:false,dirty:false,lastSyncedAt:''}}}
+    function saveSyncSettings(){try{localStorage.setItem(SYNC_SETTINGS_KEY,JSON.stringify(syncSettings))}catch{}}
     function normalizeProduct(product={}){return{...clone(DEFAULT_PRODUCT),...product,name:String(product.name||''),purchaseCost:numeric(product.purchaseCost??product.cost),collectionPrice:numeric(product.collectionPrice??product.salePrice),laborCost:numeric(product.laborCost),operatingCost:numeric(product.operatingCost??5000),shopeeQuantity:Math.max(1,Math.floor(numeric(product.shopeeQuantity)||1)),tiktokQuantity:Math.max(1,Math.floor(numeric(product.tiktokQuantity)||1)),shopeeSalePrice:numeric(product.shopeeSalePrice),tiktokSalePrice:numeric(product.tiktokSalePrice),serviceFee:numeric(product.serviceFee??3000),pishipShopee:numeric(product.pishipShopee??2700),pishipTiktok:numeric(product.pishipTiktok??1620),voucherXtraShopeeCap:numeric(product.voucherXtraShopeeCap??50000),voucherXtraTiktokCap:numeric(product.voucherXtraTiktokCap??50000),shopeeFixedRate:decimal(product.shopeeFixedRate),tiktokCommissionRate:decimal(product.tiktokCommissionRate),shopeeTransactionRate:decimal(product.shopeeTransactionRate??product.transactionRate??6),tiktokTransactionRate:decimal(product.tiktokTransactionRate??product.transactionRate??6),taxRate:decimal(product.taxRate??1.6),voucherXtraShopeeRate:decimal(product.voucherXtraShopeeRate??5.5),voucherXtraTiktokRate:decimal(product.voucherXtraTiktokRate??5.5)}}
     function migrateLegacyProducts(root){if(!Array.isArray(root.products))return[];return root.products.filter(item=>item&&item.name).map((item,index)=>normalizeProduct({...item,id:'legacy-'+index+'-'+Date.now(),createdAt:new Date().toISOString(),updatedAt:new Date().toISOString()}))}
     const root=readRoot();
@@ -120,12 +137,13 @@
     let draft=normalizeProduct(root.catalogDraft||DEFAULT_PRODUCT);
     let editingId=null;
     let activeTab=['products','shopee','tiktok'].includes(root.catalogActiveTab)?root.catalogActiveTab:'products';
-    function persist(){writeRoot({catalogVersion:CATALOG_VERSION,catalogProducts:products,catalogDraft:draft,catalogActiveTab:activeTab})}
+    let syncSettings=readSyncSettings(),syncTimer=null,syncBusy=false,syncSessionVerified=false,localRevision=0,lastFocusSyncAt=0;
+    function persist(productsChanged=false){writeRoot({catalogVersion:CATALOG_VERSION,catalogProducts:products,catalogDraft:draft,catalogActiveTab:activeTab});if(productsChanged){localRevision+=1;syncSettings.dirty=true;saveSyncSettings();updateSyncUI();scheduleCloudSave()}}
     function productFromForm(){const product={};$$('[data-field]').forEach(input=>{const key=input.dataset.field;product[key]=key==='name'?input.value.trim():MONEY_FIELDS.includes(key)?numeric(input.value):decimal(input.value)});const current=editingId?products.find(item=>item.id===editingId):null;if(current){product.shopeeQuantity=current.shopeeQuantity;product.tiktokQuantity=current.tiktokQuantity}return normalizeProduct(product)}
     function fillForm(product){$$('[data-field]').forEach(input=>{const key=input.dataset.field,value=product[key];input.value=key==='name'?value:MONEY_FIELDS.includes(key)?numeric(value).toLocaleString('vi-VN'):decimal(value).toLocaleString('vi-VN',{maximumFractionDigits:2})})}
     function resetForm({clearDraft=true}={}){editingId=null;draft=clone(DEFAULT_PRODUCT);fillForm(draft);$('#formTitle').textContent='Thêm sản phẩm';$('#saveProductBtn').textContent='Lưu sản phẩm';$('#cancelEditBtn').hidden=true;if(clearDraft)persist();$('#productName').focus()}
     function startEdit(id){const product=products.find(item=>item.id===id);if(!product)return;editingId=id;draft=clone(product);fillForm(draft);$('#formTitle').textContent='Sửa sản phẩm';$('#saveProductBtn').textContent='Cập nhật sản phẩm';$('#cancelEditBtn').hidden=false;window.scrollTo({top:0,behavior:'smooth'})}
-    function deleteProduct(id){const product=products.find(item=>item.id===id);if(!product||!confirm(`Xóa sản phẩm “${product.name}”?`))return;products=products.filter(item=>item.id!==id);if(editingId===id)resetForm({clearDraft:false});persist();renderAll()}
+    function deleteProduct(id){const product=products.find(item=>item.id===id);if(!product||!confirm(`Xóa sản phẩm “${product.name}”?`))return;products=products.filter(item=>item.id!==id);if(editingId===id)resetForm({clearDraft:false});persist(true);renderAll()}
     function renderProducts(){
       const query=$('#productSearch').value.trim().toLocaleLowerCase('vi-VN');
       const visible=products.filter(product=>product.name.toLocaleLowerCase('vi-VN').includes(query));
@@ -172,7 +190,7 @@
       const platform=input.dataset.quantityPlatform,product=products.find(item=>item.id===input.dataset.id);
       if(!product)return;
       const quantity=Math.max(1,Math.floor(numeric(input.value)||1)),key=platform==='shopee'?'shopeeQuantity':'tiktokQuantity';
-      product[key]=quantity;input.value=quantity;
+      product[key]=quantity;product.updatedAt=new Date().toISOString();input.value=quantity;
       const result=calculatePlatform(product,platform),row=input.closest('tr'),profitClass=result.profit>=0?'profit-positive':'profit-negative';
       row.querySelector('[data-result="saleSummary"]').textContent=result.configured?'Giá bán '+money(result.unitSalePrice)+' × '+result.quantity+' = '+money(result.salePrice):'Chưa nhập giá bán trên sàn';
       row.querySelector('[data-result="received"]').textContent=result.configured?money(result.received):'—';
@@ -181,16 +199,79 @@
       row.querySelector('[data-result="collectionPrice"]').textContent=money(result.collectionPrice);
       row.querySelector('[data-result="difference"]').textContent=result.configured?money(result.difference):'—';
       row.querySelector('[data-result="voucherRatio"]').textContent=result.configured?fixedPercent(result.voucherRatio):'—';
-      persist();
+      persist(true);
+    }
+    function formatSyncTime(value){if(!value)return'';const date=new Date(value);return Number.isNaN(date.getTime())?'':date.toLocaleString('vi-VN',{hour:'2-digit',minute:'2-digit',day:'2-digit',month:'2-digit'})}
+    function showSyncMessage(message,type=''){$('#syncMessage').textContent=message;$('#syncMessage').className='sync-message'+(type?' '+type:'')}
+    function updateSyncUI(){
+      const hasCode=Boolean(syncSettings.syncCode),canTransfer=hasCode&&(syncSettings.ready||syncSessionVerified);
+      $('#syncCode').value=syncSettings.syncCode||'';
+      $('#connectSyncBtn').disabled=syncBusy;
+      $('#pullSyncBtn').disabled=syncBusy||!canTransfer;
+      $('#pushSyncBtn').disabled=syncBusy||!canTransfer;
+      $('#disconnectSyncBtn').hidden=!hasCode;
+      const badge=$('#syncBadge');badge.className='sync-badge';
+      if(syncBusy){badge.textContent='Đang xử lý';badge.classList.add('busy');$('#syncSummary').textContent='Đang trao đổi dữ liệu với Google Sheet';return}
+      if(!hasCode){badge.textContent='Cục bộ';$('#syncSummary').textContent='Chưa kết nối · dữ liệu đang lưu trên thiết bị';return}
+      if(syncSettings.dirty){badge.textContent='Chờ đồng bộ';badge.classList.add('busy');$('#syncSummary').textContent='Có thay đổi trên thiết bị chưa được đẩy lên Sheet';return}
+      if(syncSettings.ready){badge.textContent='Đã kết nối';badge.classList.add('ok');$('#syncSummary').textContent=syncSettings.lastSyncedAt?'Đồng bộ gần nhất '+formatSyncTime(syncSettings.lastSyncedAt):'Đã sẵn sàng tự động đồng bộ';return}
+      badge.textContent='Chưa chọn dữ liệu';badge.classList.add('busy');$('#syncSummary').textContent='Đã lưu mã · cần chọn tải xuống hoặc đẩy lên';
+    }
+    function friendlySyncError(error){const message=String(error&&error.message?error.message:error);if(/Failed to fetch|NetworkError|Load failed|đăng nhập Google|HTML thay vì JSON/i.test(message))return'Không truy cập được Apps Script. Vào Deploy → Manage deployments và đặt “Who has access” thành “Anyone”, sau đó thử lại.';return message}
+    async function syncRequest(action,payload={}){
+      if(!syncSettings.syncCode)throw new Error('Bạn chưa nhập mã đồng bộ');
+      const response=await fetch(SYNC_ENDPOINT,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({action,syncCode:syncSettings.syncCode,...payload})});
+      const text=await response.text();
+      if(response.url.includes('accounts.google.com')||/^\s*</.test(text))throw new Error('Web App đang yêu cầu đăng nhập Google');
+      let data;try{data=JSON.parse(text)}catch{throw new Error('Apps Script trả về HTML thay vì JSON')}
+      if(!response.ok||!data.ok)throw new Error(data.error||`Lỗi HTTP ${response.status}`);
+      return data;
+    }
+    async function connectSync(){
+      const code=$('#syncCode').value.trim();
+      if(!code){showSyncMessage('Hãy nhập SYNC_CODE đã tạo trong Apps Script.','error');$('#syncCode').focus();return}
+      const changed=code!==syncSettings.syncCode;syncSettings.syncCode=code;if(changed){syncSettings.ready=false;syncSessionVerified=false}saveSyncSettings();
+      syncBusy=true;updateSyncUI();showSyncMessage('Đang kiểm tra quyền truy cập và mã đồng bộ...');
+      try{const data=await syncRequest('load');syncSessionVerified=true;const cloudCount=Array.isArray(data.products)?data.products.length:0;showSyncMessage(`Kết nối thành công. Sheet có ${cloudCount} sản phẩm, thiết bị này có ${products.length}. Hãy chọn chiều đồng bộ lần đầu.`,'ok')}
+      catch(error){syncSessionVerified=false;showSyncMessage(friendlySyncError(error),'error')}
+      finally{syncBusy=false;updateSyncUI()}
+    }
+    async function pullFromCloud(quiet=false){
+      if(syncBusy||!syncSettings.syncCode)return;
+      syncBusy=true;updateSyncUI();if(!quiet)showSyncMessage('Đang tải dữ liệu từ Google Sheet...');
+      try{
+        const data=await syncRequest('load'),cloudProducts=Array.isArray(data.products)?data.products:[];
+        if(!quiet&&products.length&&!confirm(`Thay ${products.length} sản phẩm trên thiết bị bằng ${cloudProducts.length} sản phẩm từ Google Sheet?`)){showSyncMessage('Đã hủy tải dữ liệu. Không có sản phẩm nào bị thay đổi.');return}
+        products=cloudProducts.map(normalizeProduct);editingId=null;syncSettings.ready=true;syncSettings.dirty=false;syncSettings.lastSyncedAt=new Date().toISOString();localRevision=0;saveSyncSettings();persist(false);renderAll();showSyncMessage(`Đã tải ${products.length} sản phẩm từ Google Sheet.`,'ok')
+      }catch(error){showSyncMessage(friendlySyncError(error),'error')}
+      finally{syncBusy=false;updateSyncUI()}
+    }
+    async function pushToCloud(quiet=false){
+      if(syncBusy||!syncSettings.syncCode)return;
+      if(!quiet&&!confirm(`Đẩy ${products.length} sản phẩm trên thiết bị lên Google Sheet? Dữ liệu sản phẩm hiện có trên Sheet sẽ được thay thế.`))return;
+      const sentRevision=localRevision,payload=products.map(clone);let succeeded=false;syncBusy=true;updateSyncUI();if(!quiet)showSyncMessage('Đang đẩy dữ liệu lên Google Sheet...');
+      try{await syncRequest('save',{products:payload});succeeded=true;syncSettings.ready=true;if(localRevision===sentRevision)syncSettings.dirty=false;syncSettings.lastSyncedAt=new Date().toISOString();saveSyncSettings();showSyncMessage(`Đã đồng bộ ${payload.length} sản phẩm lên Google Sheet.`,'ok')}
+      catch(error){syncSettings.dirty=true;saveSyncSettings();showSyncMessage(friendlySyncError(error),'error')}
+      finally{syncBusy=false;updateSyncUI();if(succeeded&&syncSettings.dirty&&syncSettings.ready)scheduleCloudSave()}
+    }
+    function scheduleCloudSave(){if(!syncSettings.ready||!syncSettings.syncCode)return;clearTimeout(syncTimer);syncTimer=setTimeout(()=>pushToCloud(true),800)}
+    function disconnectSync(){clearTimeout(syncTimer);syncSettings={syncCode:'',ready:false,dirty:false,lastSyncedAt:''};syncSessionVerified=false;saveSyncSettings();$('#syncCode').value='';showSyncMessage('Đã ngắt kết nối. Dữ liệu trên thiết bị và Google Sheet không bị xóa.');updateSyncUI()}
+    function initializeSync(){
+      $('#syncEndpoint').value=SYNC_ENDPOINT;updateSyncUI();
+      $('#connectSyncBtn').onclick=connectSync;$('#pullSyncBtn').onclick=()=>pullFromCloud(false);$('#pushSyncBtn').onclick=()=>pushToCloud(false);$('#disconnectSyncBtn').onclick=disconnectSync;
+      $('#toggleSyncCodeBtn').onclick=()=>{const input=$('#syncCode'),show=input.type==='password';input.type=show?'text':'password';$('#toggleSyncCodeBtn').textContent=show?'Ẩn mã':'Hiện mã'};
+      $('#syncCode').onkeydown=event=>{if(event.key==='Enter'){event.preventDefault();connectSync()}};
+      window.addEventListener('focus',()=>{const now=Date.now();if(now-lastFocusSyncAt<15000||!syncSettings.ready||syncSettings.dirty)return;lastFocusSyncAt=now;pullFromCloud(true)});
+      if(syncSettings.ready&&syncSettings.syncCode){if(syncSettings.dirty)scheduleCloudSave();else setTimeout(()=>pullFromCloud(true),0)}
     }
     function renderAll(){renderProducts();renderPlatformAnalysis('shopee');renderPlatformAnalysis('tiktok')}
     function setTab(tab){activeTab=tab;$$('.tab').forEach(button=>button.classList.toggle('active',button.dataset.tab===tab));$$('.tab-panel').forEach(panel=>panel.hidden=panel.id!==`panel-${tab}`);persist()}
     $$('.tab').forEach(button=>button.onclick=()=>setTab(button.dataset.tab));
     $$('.money-input').forEach(input=>{input.onfocus=()=>input.select();input.onblur=()=>{input.value=numeric(input.value).toLocaleString('vi-VN')}});
     $$('[data-field]').forEach(input=>input.oninput=()=>{draft=productFromForm();persist()});
-    $('#productForm').onsubmit=event=>{event.preventDefault();const value=productFromForm();if(!value.name){$('#productName').focus();return}const now=new Date().toISOString();if(editingId){const index=products.findIndex(item=>item.id===editingId);if(index>=0)products[index]={...products[index],...value,updatedAt:now}}else products.unshift({...value,id:globalThis.crypto?.randomUUID?.()||String(Date.now()),createdAt:now,updatedAt:now});persist();renderAll();resetForm()};
+    $('#productForm').onsubmit=event=>{event.preventDefault();const value=productFromForm();if(!value.name){$('#productName').focus();return}const now=new Date().toISOString();if(editingId){const index=products.findIndex(item=>item.id===editingId);if(index>=0)products[index]={...products[index],...value,updatedAt:now}}else products.unshift({...value,id:globalThis.crypto?.randomUUID?.()||String(Date.now()),createdAt:now,updatedAt:now});persist(true);renderAll();resetForm()};
     $('#clearDraftBtn').onclick=()=>resetForm();$('#cancelEditBtn').onclick=()=>resetForm();$('#productSearch').oninput=renderProducts;
-    fillForm(draft);renderAll();setTab(activeTab);persist();
+    fillForm(draft);renderAll();setTab(activeTab);persist();initializeSync();
   </script>
 </body>
 </html>
