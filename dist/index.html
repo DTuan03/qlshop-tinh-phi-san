@@ -100,12 +100,12 @@
       <section class="tab-panel" id="panel-shopee" hidden>
         <div class="platform-page-head"><div><h1>Shopee</h1><p>Hiệu quả từng sản phẩm theo giá bán và cấu hình phí Shopee đã nhập.</p></div><div class="count-pill"><b id="shopeeCount">0</b> sản phẩm</div></div>
         <section class="card"><div class="analysis-wrap"><table class="analysis-table"><thead><tr><th>Tên sản phẩm</th><th>Thực nhận từ sàn</th><th>Lợi nhuận</th><th>Tỷ suất lợi nhuận</th><th>Giá thu</th><th>Chênh</th><th>% voucher</th></tr></thead><tbody id="shopeeAnalysis"></tbody></table></div></section>
-        <div class="formula-note"><b>Công thức:</b> Giá bán, giá thu và giá nhập gốc được nhân số lượng. Phí cố định theo đơn, công và phí vận hành chỉ tính một lần. % voucher = tổng giá thu ÷ tổng giá bán.</div>
+        <div class="formula-note"><b>Công thức:</b> Giá bán, giá thu và giá nhập gốc được nhân số lượng. Phí cố định theo đơn, công và phí vận hành chỉ tính một lần. % voucher = chênh (giá bán trên sàn − giá thu) ÷ giá bán trên sàn.</div>
       </section>
       <section class="tab-panel" id="panel-tiktok" hidden>
         <div class="platform-page-head"><div><h1>TikTok Shop</h1><p>Hiệu quả từng sản phẩm theo giá bán và cấu hình phí TikTok đã nhập.</p></div><div class="count-pill"><b id="tiktokCount">0</b> sản phẩm</div></div>
         <section class="card"><div class="analysis-wrap"><table class="analysis-table"><thead><tr><th>Tên sản phẩm</th><th>Thực nhận từ sàn</th><th>Lợi nhuận</th><th>Tỷ suất lợi nhuận</th><th>Giá thu</th><th>Chênh</th><th>% voucher</th></tr></thead><tbody id="tiktokAnalysis"></tbody></table></div></section>
-        <div class="formula-note"><b>Công thức:</b> Giá bán, giá thu và giá nhập gốc được nhân số lượng. Phí cố định theo đơn, công và phí vận hành chỉ tính một lần. % voucher = tổng giá thu ÷ tổng giá bán.</div>
+        <div class="formula-note"><b>Công thức:</b> Giá bán, giá thu và giá nhập gốc được nhân số lượng. Phí cố định theo đơn, công và phí vận hành chỉ tính một lần. % voucher = chênh (giá bán trên sàn − giá thu) ÷ giá bán trên sàn.</div>
       </section>
     </main>
   </div>
@@ -176,7 +176,7 @@
       const totalFees=percentFees+xtraFee+product.serviceFee+piship;
       const received=salePrice-totalFees;
       const profit=received-purchaseCost-product.laborCost-product.operatingCost;
-      return{configured:true,quantity,unitSalePrice,salePrice,collectionPrice,received,profit,profitRate:purchaseCost>0?profit/purchaseCost*100:0,difference:salePrice-collectionPrice,voucherRatio:salePrice>0?collectionPrice/salePrice*100:0,totalFees};
+      return{configured:true,quantity,unitSalePrice,salePrice,collectionPrice,received,profit,profitRate:purchaseCost>0?profit/purchaseCost*100:0,difference:salePrice-collectionPrice,voucherRatio:salePrice>0?(salePrice-collectionPrice)/salePrice*100:0,totalFees};
     }
     function fixedPercent(value){return Number(value||0).toLocaleString('vi-VN',{minimumFractionDigits:2,maximumFractionDigits:2})+'%'}
     function renderPlatformAnalysis(platform){
